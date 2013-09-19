@@ -125,7 +125,7 @@ public:
 		m_CBallInOne.fDropLife = 3.5;
 		m_CBallInOne.fDropLengthFactor = 3.5;
 		m_CBallInOne.fSphereRadius = 0.7;
-		m_CBallInOne.vSpherePos = XMFLOAT4(0,-1.5,0,1);
+		m_CBallInOne.vSpherePos = XMFLOAT4(1.5,-1.5,0.2,1);
 		//m_CBallInOne.mTeapot = XMMatrixTranspose( XMMatrixTranslation(-1,1,0));
 		m_CBallInOne.mTeapot = XMMatrixTranspose( XMMatrixTranslation(0,0,0));
 		m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
@@ -631,6 +631,35 @@ public:
 	LRESULT HandleMessages(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		m_Camera.HandleMessages( hWnd, uMsg, wParam, lParam );
+		switch(uMsg)
+		{
+		case WM_KEYDOWN:
+			{
+				int nKey = static_cast<int>(wParam);
+				
+				if (nKey == 'W')
+				{
+					m_CBallInOne.vSpherePos.z += 0.02;
+					m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
+				}
+				if (nKey == 'S')
+				{
+					m_CBallInOne.vSpherePos.z -= 0.02;
+					m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
+				}
+				if (nKey == 'A')
+				{
+					m_CBallInOne.vSpherePos.x += 0.02;
+					m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
+				}
+				if (nKey == 'D')
+				{
+					m_CBallInOne.vSpherePos.x -= 0.02;
+					m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
+				}
+				break;
+			}
+		}
 		return 0;
 	}
 };
