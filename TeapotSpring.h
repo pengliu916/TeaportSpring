@@ -125,7 +125,7 @@ public:
 		m_CBallInOne.fDropLife = 3.5;
 		m_CBallInOne.fDropLengthFactor = 3.5;
 		m_CBallInOne.fSphereRadius = 0.7;
-		m_CBallInOne.vSpherePos = XMFLOAT4(1.5,-1.5,0.2,1);
+		m_CBallInOne.vSpherePos = XMFLOAT4(1.4,-1.5,0.1,1);
 		//m_CBallInOne.mTeapot = XMMatrixTranspose( XMMatrixTranslation(-1,1,0));
 		m_CBallInOne.mTeapot = XMMatrixTranspose( XMMatrixTranslation(0,0,0));
 		m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
@@ -413,7 +413,7 @@ public:
 		D3DXVECTOR3 vecEye( 0.0f, 0.0f, -50.0f );
 		D3DXVECTOR3 vecAt ( 0.0f, 0.0f, 0.0f );
 		m_Camera.SetViewParams( &vecEye, &vecAt );
-		m_Camera.SetRadius( 10.0f, 1.0f, 40.0f );
+		m_Camera.SetRadius( 18.0f, 1.0f, 40.0f );
 
 		return hr;
 	}
@@ -649,12 +649,12 @@ public:
 				}
 				if (nKey == 'A')
 				{
-					m_CBallInOne.vSpherePos.x += 0.02;
+					m_CBallInOne.vSpherePos.x -= 0.02;
 					m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
 				}
 				if (nKey == 'D')
 				{
-					m_CBallInOne.vSpherePos.x -= 0.02;
+					m_CBallInOne.vSpherePos.x += 0.02;
 					m_CBallInOne.mSphere = XMMatrixTranspose( XMMatrixTranslationFromVector(XMLoadFloat4(&m_CBallInOne.vSpherePos)));
 				}
 				break;
