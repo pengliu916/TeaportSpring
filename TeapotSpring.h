@@ -16,7 +16,7 @@
 #define SUB_TEXTUREHEIGHT 480
 #endif
 
-#define MAX_PARTICLES 300000
+#define MAX_PARTICLES 3000000
 
 
 using namespace std;
@@ -222,7 +222,7 @@ public:
 
 		PARTICLE_V vertStart[1] =
 		{
-			{ XMFLOAT3( 1.5, 0.35, 0 ), XMFLOAT3( 3, 0, 0 ),float( 0 ), UINT( 0 ) },
+			{ XMFLOAT3( 1.5, 0.365, 0 ), XMFLOAT3( 3, 0, 0 ),float( 0 ), UINT( 0 ) },
 		};
 
 		vbInitData.pSysMem = vertStart;
